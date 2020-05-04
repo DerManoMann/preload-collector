@@ -1,0 +1,52 @@
+{
+    "name": "radebatz/preload-collector",
+    "description": "Collects list of used classes to be used for PHP 7.4 preloading and provides preload script.",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "http://radebatz.net/mano/",
+    "authors": [
+        {
+            "name": "Martin Rademacher",
+            "email": "mano@radebatz.org"
+        }
+    ],
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Radebatz\\PreloadCollector\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Radebatz\\PreloadCollector\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Radebatz\\PreloadCollector\\Laravel\\ServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "fix-cs": [
+            "vendor/bin/php-cs-fixer fix src",
+            "vendor/bin/php-cs-fixer fix tests"
+        ]
+    },
+    "require": {
+        "php": ">=7.4",
+        "ext-json": "*",
+        "psr/http-server-middleware": "^1.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "laravel/laravel": "^7.6"
+    }
+}
